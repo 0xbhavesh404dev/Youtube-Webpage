@@ -77,6 +77,28 @@ Youtube-Webpage/
 
 ---
 
+## 😅 Challenges I faced & how I fixed them
+
+**1. Everything rendered in Times (serif) font.**
+My first version had no `font-family` at all, so the browser defaulted to Times Roman and it looked nothing like YouTube.
+**Fix:** added the Roboto font (the real YouTube font) with a Google Fonts `<link>` and set it on `body`.
+
+**2. Thumbnails and text sat on the same line.**
+I used `display: inline` on images, which made the title flow beside the thumbnail instead of below it.
+**Fix:** switched the video cards to `inline-block` with `vertical-align: top`, and finally to a proper **CSS Grid** layout with `repeat(auto-fill, minmax(300px, 1fr))` so the grid wraps automatically.
+
+**3. The mic button showed a broken black blob.**
+I hotlinked a stock-photo image URL for the mic icon, and it broke at runtime.
+**Fix:** replaced it with a Font Awesome icon (`fa-microphone`) — icons from an icon library are far more reliable than hotlinked images.
+
+**4. The notification badge came back after reading notifications.**
+`youtube.js` saved the cleared count with `localStorage`, but the homepage still hardcoded `2+` in the HTML — so the badge always returned.
+**Fix:** learned that saving the data is only half the job; the page must also **read it back on load**. (And an empty badge showed as a tiny red dot, fixed with a `.badge:empty { display: none }` rule.)
+
+**5. Sidebar items showed bullet points and blue underlined links.**
+Default browser styles leaked into my sidebar `<ul>`.
+**Fix:** removed list-style, set `text-decoration: none` on the links and styled each row as a flex row with a hover background.
+
 ## 📖 What I Learned
 
 - How **Flexbox** and **CSS Grid** work together in one layout
@@ -84,9 +106,3 @@ Youtube-Webpage/
 - Making round buttons and pill-shaped search bars with `border-radius`
 - The **`localStorage`** API — saving data that survives a page refresh
 - Small touches (hover states, transitions, focus rings) make a page feel real
-
----
-
-## 🙌 Credits
-
-Made while learning HTML & CSS. Video thumbnails and channel logos belong to their respective YouTube creators — used here just for practice. 🙏
