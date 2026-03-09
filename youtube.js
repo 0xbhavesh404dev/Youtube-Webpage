@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         localStorage.setItem("notificationCount", "0");
 
-        window.location.href = "_2notification.html";
+        window.location.href = "notification.html";
     });
 
 });
