@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="_1youtube.css">
+    <link rel="stylesheet" href="_2notification.css">
+</head>
+
+<body class="youtube-body">
+
+<!-- TOP BAR -->
+<div class="top-bar">
+    <h2>Youtube</h2>
+
+    <div class="text-box">
+        <input id="textbox" type="text" placeholder="Search">
+        <button id="mic-button">
+            <img src="https://media.istockphoto.com/id/1478928396/video/microphone-icon.jpg?s=640x640&k=20&c=WTIdYRZZ4aHIvYzcde_yH_m28QQvtADXV55L6L_1zMs=">
+        </button>
+
+        <button id="create">+ Create</button>
+
+        <button class="notification-btn">
+            <i class="fa-regular fa-bell"></i>
+            <span class="badge"></span>
+        </button>
+
+        <button id="profile">
+            <img src="profile.jpeg">
+        </button>
+    </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="main-layout">
+
+    <!-- LEFT SIDEBAR -->
+    <div class="content-left">
+        <ul>
+            <a href="index.html" class="subscription-link" style="text-decoration: none;">
+            <li><i class="fa-solid fa-house"></i> Home</li>
+            </a>
+            <hr>
+            
+            <div class="subscriptions">
+                <h3>Subscriptions</h3>
+
+                <a href="https://www.youtube.com/@StudyIQEducationLtd" class="subscription-link" style="text-decoration: none;">
+                    <div class="subscription">
+                        <img src="rightlogo/studyiqias.png">StudyIQIAS
+                    </div>
+                </a>
+                
+                <a href="https://www.youtube.com/results?search_query=deshbhakt" class="subscription-link" style="text-decoration: none;">
+                    <div class="subscription">
+                        <img src="rightlogo/deshbhakt.jpg">Deshbhakt
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/@KhanSirPatnaKhanGs" class="subscription-link" style="text-decoration: none;">
+                    <div class="subscription">
+                        <img src="rightlogo/khansir.jpg">Khan Sir Patna
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/@khangsresearchcentre1685" class="subscription-link" style="text-decoration: none;">
+                    <div class="subscription">
+                        <img src="rightlogo/khangs.jpg">Khan GS Research Centre
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/@DearSir" class="subscription-link" style="text-decoration: none;">
+                    <div class="subscription">
+                        <img src="rightlogo/dearsir.png">Dear Sir
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/@cyberoctopus9635" class="subscription-link" style="text-decoration: none;">
+                    <div class="subscription">
+                        <img src="rightlogo/cyberoctupus.jpg">Cyber Octopus
+                    </div>
+                </a>
+            </div>
+
+            <hr>
+
+            <div class="you">
+                <h3 class="righthead">You</h3>
+                <button class="subscription" href="https://www.youtube.com/feed/history"><img src="rightlogo/history.png">History</button>
+                <button class="subscription"><img src="rightlogo/playlist.png">Playlists</button>
+                <button class="subscription"><img src="rightlogo/watchlater.png">Watch Later</button>
+                <button class="subscription"><img src="rightlogo/Liked.png">Liked Videos</button>
+                <button class="subscription"><img src="rightlogo/yourvideos.png">Your Videos</button>
+                <button class="subscription"><img src="rightlogo/download1.png">Downloads</button>
+            </div>
+
+            <hr>
+
+            <div class="explore">
+                <h3>Explore</h3>
+                <button class="subscription"><img src="rightlogo/shopping.png">Shoping</button>
+                <button class="subscription"><img src="rightlogo/music.png">Music</button>
+                <button class="subscription"><img src="rightlogo/films.png">Films</button>
+            </div>
+
+            <hr>
+
+            <div class="more-from-youtube">
+                <h3>More from YouTube</h3>
+                <button class="subscription"><img src="rightlogo/youtube.jpg">YouTube Premium</button>
+                <button class="subscription"><img src="rightlogo/youtubestudio.png">YouTube Studio</button>
+                <button class="subscription"><img src="rightlogo/youtubemusic.png">YouTube Music</button>
+                <button class="subscription"><img src="rightlogo/youtubekids.png">YouTube Kids</button>
+            </div>
+
+            <hr>
+
+            <h3>Settings</h3>
+            <h3>Report History</h3>
+            <h3>Help</h3>
+            <h3>Send Feedback</h3>
+        </ul>
+    </div>
+
+
+    <!-- RIGHT notification AREA -->
+
+
+
+<div class="notification-container">
+
+    <h2 class="notification-title">Your Notifications</h2>
+
+    <!-- Notification 1 -->
+    <div class="notification-card">
+        <img src="https://img.youtube.com/vi/JB9kq_3cRuM/hqdefault.jpg" class="notification-img">
+
+        <div class="notification-content">
+            <strong>New React Tutorial Uploaded!</strong>
+            <p>Codevolution has uploaded a new React project tutorial for beginners.</p>
+            <div class="notification-time">2 hours ago</div>
+        </div>
+    </div>
+
+    <!-- Notification 2 -->
+    <div class="notification-card">
+        <img src="https://img.youtube.com/vi/pNtkOZuWetg/hqdefault.jpg" class="notification-img">
+
+        <div class="notification-content">
+            <strong>Python Full Course Added</strong>
+            <p>Programming with Mosh released a complete Python masterclass.</p>
+            <div class="notification-time">5 hours ago</div>
+        </div>
+    </div>
+
+    <!-- Notification 3 -->
+    <div class="notification-card">
+        <img src="https://img.youtube.com/vi/au-Oixsfpmk/hqdefault.jpg" class="notification-img">
+
+        <div class="notification-content">
+            <strong>DSA Course Live Now</strong>
+            <p>Love Babbar published an updated Data Structures and Algorithms series.</p>
+            <div class="notification-time">1 day ago</div>
+        </div>
+    </div>
+
+    <!-- Notification 4 -->
+    <div class="notification-card">
+        <img src="https://img.youtube.com/vi/mZShTDwj33M/hqdefault.jpg" class="notification-img">
+
+        <div class="notification-content">
+            <strong>5 New Coding Projects</strong>
+            <p>Build resume-worthy projects to improve your placement chances.</p>
+            <div class="notification-time">2 days ago</div>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-btn">⬅ Back to Home</a>
+
+</div>

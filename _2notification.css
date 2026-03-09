@@ -1,0 +1,35 @@
+.notification-container{
+    display: flex;
+    flex-direction: column;
+
+}
+.notification-card :hover{
+    background-color: #afa8a8;
+    
+}
+.notification-card{
+     height: 100px;
+    width:400px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+.notification-card img{
+    height:100px;
+    width:200px;
+    object-fit: cover;
+    display: flex;
+    border-radius: 30px;
+}
+.notification-card .notification-content{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    width: 100%;
+}
+.notification-card .notification-content p{
+    margin: 0;
+    font-size: 14px;
+    color: #151414;
+}
