@@ -1,35 +1,98 @@
-.notification-container{
-    display: flex;
-    flex-direction: column;
+/* =========================================================
+   NOTIFICATION PAGE STYLES
+   Used by notification.html
+   ========================================================= */
 
+
+/* ---------- CONTAINER (wraps all notifications) ---------- */
+
+.notification-container {
+    max-width: 640px;                  /* keeps cards a readable width */
+    margin: 0 auto;                    /* centers the container */
+    padding: 24px;
 }
-.notification-card :hover{
-    background-color: #afa8a8;
-    
+
+/* "Your Notifications" heading */
+.notification-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 20px;
+    color: #0f0f0f;
 }
-.notification-card{
-     height: 100px;
-    width:400px;
+
+
+/* ---------- NOTIFICATION CARD ---------- */
+
+/* One notification = picture on the left, text on the right */
+.notification-card {
     display: flex;
     flex-direction: row;
-    margin-bottom: 20px;
+    gap: 12px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);   /* soft shadow */
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
-.notification-card img{
-    height:100px;
-    width:200px;
-    object-fit: cover;
-    display: flex;
-    border-radius: 30px;
+
+/* Gently lifts up when you hover it */
+.notification-card:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+    cursor: pointer;
 }
-.notification-card .notification-content{
+
+/* Thumbnail picture on the left of the card */
+.notification-img {
+    width: 180px;
+    height: 100px;
+    object-fit: cover;                 /* fills the box without stretching */
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+/* Text on the right of the card */
+.notification-content {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    padding: 10px;
-    width: 100%;
+    padding: 4px 6px;
 }
-.notification-card .notification-content p{
+
+.notification-content strong {
+    font-size: 15px;
+    color: #0f0f0f;
+}
+
+.notification-content p {
     margin: 0;
+    font-size: 13px;
+    color: #606060;
+}
+
+/* "2 hours ago" style text */
+.notification-time {
+    font-size: 12px;
+    color: #909090;
+}
+
+
+/* ---------- BACK BUTTON ---------- */
+
+.back-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 9px 18px;
+    background-color: #f2f2f2;
+    color: #0f0f0f;
     font-size: 14px;
-    color: #151414;
+    font-family: Roboto, Arial, sans-serif;
+    border-radius: 19px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.back-btn:hover {
+    background-color: #e5e5e5;
 }

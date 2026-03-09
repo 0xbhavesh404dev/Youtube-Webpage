@@ -1,309 +1,362 @@
-.youtube-body{
-    background-color: #f5efeff1;
+/* =========================================================
+   YOUTUBE WEBPAGE - MAIN STYLESHEET
+   My first HTML & CSS project :)
+   The page has 3 main parts:
+     1. Top bar      (logo, search box, buttons)
+     2. Left sidebar (subscriptions, you, explore)
+     3. Right side   (grid of video cards)
+   ========================================================= */
+
+
+/* ---------- 1. GLOBAL STYLES (apply to the whole page) ---------- */
+
+/* Remove default browser padding so things line up nicely */
+* {
+    box-sizing: border-box;
 }
 
-/* MAIN HEADER BAR */
+body.youtube-body {
+    font-family: Roboto, Arial, sans-serif;   /* YouTube's real font */
+    background-color: #f9f9f9;                /* light grey page background */
+    color: #0f0f0f;                           /* almost-black text */
+    margin: 0;
+}
+
+
+/* ---------- 2. TOP BAR (header) ---------- */
+
 .top-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;   /* CHANGED */
-    padding: 0 20px;                  /* CHANGED */
-    height: 80px;                     /* CHANGED */
-}
-.righthead{
-    font-size: 90px;
-    font-weight: 700;
-    color: #121212;
+    display: flex;                     /* puts items in one row */
+    align-items: center;               /* center them vertically */
+    justify-content: space-between;    /* logo left, search right */
+    height: 56px;
+    padding: 0 16px;
+    background-color: #ffffff;
+    position: sticky;                  /* header stays visible when scrolling */
+    top: 0;
+    z-index: 10;                       /* keeps header above the videos */
 }
 
-/* CENTER SEARCH AREA */
+.top-bar h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* Search area: text input + mic + create + bell + profile */
 .text-box {
     display: flex;
     align-items: center;
-    gap: 15px;
-
-    padding-left: 0;                 /* CHANGED (removed fake centering) */
+    gap: 12px;                         /* space between the buttons */
 }
 
-/* Search box styling */
+/* The search input (rounded pill like YouTube) */
 #textbox {
-    width: 300px;
-    padding: 10px 35px 10px 15px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 65px;
+    width: 320px;
+    padding: 9px 16px;
+    font-size: 15px;
+    font-family: inherit;
+    border: 1px solid #cccccc;
+    border-radius: 24px;
     outline: none;
 }
 
-/* Optional clean focus effect */
+/* Blue border when the user clicks inside the search box */
 #textbox:focus {
-    border-color: #1a73e8;
+    border-color: #065fd4;
 }
 
-/* MIC BUTTON */
-#mic-button{
-   border-radius: 50%;               /* CHANGED */
-   height: 40px;                     /* CHANGED */
-   width: 40px;                      /* CHANGED */
-   background-color: rgb(30,30,30);  /* CHANGED */
-   border: none;                     /* CHANGED */
-   cursor: pointer;                 /* CHANGED */                 /* CHANGED (added padding for better click area) */
-}
-
-#mic-button img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;              /* CHANGED */
-}
-
-/* CREATE BUTTON */
-#create{
+/* Round mic button next to the search box */
+#mic-button {
     height: 40px;
-    padding: 0 18px;                 /* CHANGED (removed fixed width) */
-    border-radius: 20px;
-    background-color: rgb(238, 243, 248);
+    width: 40px;
+    border-radius: 50%;                /* makes it a circle */
     border: none;
-    color: rgb(0, 0, 0);
-    font-size: 18px;
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+#mic-button i {
+    font-size: 17px;
+    color: #0f0f0f;
+}
+
+#mic-button:hover {
+    background-color: #e5e5e5;
+}
+
+/* "+ Create" button */
+#create {
+    height: 38px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 19px;
+    background-color: #f2f2f2;
+    color: #0f0f0f;
+    font-size: 14px;
+    font-family: inherit;
     cursor: pointer;
 }
 
 #create:hover {
-    background-color: rgb(208, 213, 213);   /* CHANGED */
+    background-color: #e5e5e5;
 }
 
-/* NOTIFICATION */
-.notification-btn{
+/* Notification bell button */
+.notification-btn {
+    position: relative;                /* needed so the badge can sit on top of it */
     height: 40px;
     width: 40px;
-    border-radius: 50%;              /* CHANGED */
-    background: transparent;         /* CHANGED */
-    border: none;                    /* CHANGED */
-    cursor: pointer;                /* CHANGED */
-    color: rgb(10, 9, 9);                   /* CHANGED */
-}
-.badge{
-    color: rgb(229, 10, 10);
-}
-.notification-btn:hover{
-    background-color: rgba(229, 233, 230, 0.922);  /* CHANGED */
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    font-size: 18px;
+    color: #0f0f0f;
+    cursor: pointer;
 }
 
-/* PROFILE */
-#profile{
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;              /* CHANGED */
-    background: transparent;         /* CHANGED */
-    border: none;                    /* CHANGED */
-    padding: 0;                      /* CHANGED */
-    overflow: hidden;               /* CHANGED */
-    cursor: pointer;                /* CHANGED */
+/* The small red number on the bell (unique feature!) */
+.badge {
+    position: absolute;
+    top: -3px;
+    right: -5px;
+    background-color: #cc0000;         /* YouTube red */
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+}
+
+.notification-btn:hover {
+    background-color: #e5e5e5;
+}
+
+/* Round profile picture button */
+#profile {
+    height: 36px;
+    width: 36px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 #profile img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 50%;              /* CHANGED */
-}
-#subscription{
-    border-radius: 50%;               /* CHANGED */
-   height: 40px;                     /* CHANGED */
-   width: 40px;                      /* CHANGED */
-   background-color: rgb(30,30,30);  /* CHANGED */
-   border: none;                     /* CHANGED */
-   cursor: pointer; 
-}
-#subscription img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;  
-}
-
-.subscription {
-    display: flex;            /* KEY FIX */
-    align-items: center;      /* vertical centering */
-    gap: 10px;
-    border: none;
-    background: transparent;
-    color: rgb(10, 10, 10);
-    font-size: 13px; /* smaller like YouTube */
-    cursor: pointer;
-    padding: 6px;
-}
-
-.subscription img {
-    width: 35px;
-    height: 35px;
+    object-fit: cover;                 /* stops the photo from stretching */
     border-radius: 50%;
-    object-fit: cover;
-    display: block;           /* removes baseline shift */
+}
+
+
+/* ---------- 3. MAIN LAYOUT (sidebar left + videos right) ---------- */
+
+/* Flexbox puts the two columns side by side */
+.main-layout {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* LEFT COLUMN (sidebar) */
+.content-left {
+    width: 240px;
+    flex-shrink: 0;                    /* sidebar never gets squeezed */
+    padding: 8px 12px;
+    position: sticky;
+    top: 56px;
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;
+}
+
+/* Remove the bullet points and default spacing of <ul> */
+.content-left ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Section headings like "Subscriptions", "You", "Explore" */
+.content-left h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #0f0f0f;
+    margin: 14px 8px 6px;
+}
+
+/* Fix the old 90px "righthead" mistake - keep it normal size */
+.righthead {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Thin grey separator lines */
+.content-left hr {
+    border: none;
+    border-top: 1px solid #e5e5e5;
+    margin: 10px 0;
+}
+
+/* One row inside the sidebar (icon + name) */
+.subscription {
+    display: flex;                     /* icon and text side by side */
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: #0f0f0f;
+    font-family: inherit;
+    font-size: 14px;
+    text-align: left;                  /* buttons show text on the left */
+    cursor: pointer;
 }
 
 .subscription:hover {
-    background: rgba(78, 73, 73, 0.1);
-    border-radius: 8px;
-}
-/* ===== MAIN SIDE BY SIDE LAYOUT (REQUIRED) ===== */
-
-.main-layout {
-    display: flex;        /* THIS forces left + right horizontally */
+    background-color: #e5e5e5;         /* light grey hover effect */
 }
 
-/* LEFT COLUMN */
-.content-left {
-    width: 240px;         /* fixed sidebar width */
-    flex-shrink: 0;
-}
-
-/* Sidebar text smaller like YouTube */
-.content-left ul,
-.content-left h3,
-.content-left li {
-    font-size: 13px;
-}
-
-/* RIGHT COLUMN */
-.content-right {
-    flex: 1;
-    padding: 20px;
-
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); /* Increased min width */
-    gap: 30px;                 /* space between videos */
-    align-items: start;
-}
-.video-section-title {
-    grid-column: 1 / -1;
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 18px;
-    margin-top: 0;
-    color: #222;
-    letter-spacing: -0.5px;
-}
-.video-card {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-
-}
-
-.video-card img{
-    width: 100%;
-    height: auto;          /* PREVENTS CUTTING */
-    display: block;
-    border-radius: 16px;  /* smoother, safer curve */
-}
-.video-info {
-    margin-top: 10px;
-}
-.video-title {
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-    margin-bottom: 5px;
-}
-.video-channel {
-    font-size: 14px;
-    color: #666;
-}
-
-
-.content{
-    margin-left:220px;
-    margin-top:80px;
-    padding:20px;
-}
-
-.video-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-    gap:20px;
-}
-
-.video-card{
-    background:#fff;
-    color:#000;
-    text-decoration:none;
-    border-radius: 20px;;
-}
-/* THUMBNAIL FIX */
-.thumbnail{
-    width:100%;
-    aspect-ratio:16/9;   /* forces YouTube ratio */
-    object-fit:cover;    /* prevents stretching */
-    border-radius:10px;
-}
-
-.video-info{
-    display:flex;
-    margin-top:10px;
-}
-
-.p1rofile-picture {
-    width: 100%;
-    height: 100%;
+/* Channel pictures in the sidebar */
+.subscription img {
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 10px;
-    border: 2px solid #fff;
-    box-sizing: border-box;
-    background: #fff;
-    display: block;
-    overflow: hidden;
-}
-.channelprofile {    
-    width: 80px;
-    height: 50px;
-    border: none;
-    background: transparent;
-    padding: 0;
-    cursor: pointer;
-    border-radius: 40px;
-}
-.channelprofile img {
-    width: 50%;
-    height: 80%;
-    object-fit: cover;
-    border-radius: 50%;
-    border-radius: 40px;
 }
 
-.video-title{
-    font-size:14px;
-    font-weight:bold;
+/* Font Awesome icons (used where images were missing) */
+.subscription i {
+    width: 26px;
+    font-size: 18px;
+    text-align: center;
+    color: #606060;
 }
 
-.video-meta{
-    font-size:12px;
-    color:#606060;
-}
-
-@media(max-width:768px){
-    .sidebar{display:none;}
-    .content{margin-left:0;}
-    .search-box{width:60%;}
-}
-
-.video-link {
+/* Links in the sidebar should not look like blue underlined links */
+.subscription-link {
     text-decoration: none;
     color: inherit;
     display: block;
 }
 
+
+/* ---------- 4. VIDEO GRID (right side) ---------- */
+
+.content-right {
+    flex: 1;                           /* takes the remaining width */
+    padding: 24px;
+
+    /* CSS Grid makes the videos wrap into rows automatically */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 28px 16px;
+    align-content: start;
+}
+
+/* Big "Recommended" heading above the grid */
+.video-section-title {
+    grid-column: 1 / -1;               /* heading takes the full row width */
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    color: #0f0f0f;
+}
+
+/* Each video is wrapped in a link - remove its blue underline */
+.video-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 .video-card {
     cursor: pointer;
-}
-.video-card {
-    transition: transform .2s ease, box-shadow .2s ease;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Grows slightly and gets a shadow when you hover a video */
 .video-card:hover {
-    transform: translateX(-2px) scale(1.02);
-    box-shadow: 0 6px 18px rgba(0,0,0,.25);
+    transform: scale(1.02);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
+/* The video thumbnail image */
+.video-card > img {
+    width: 100%;
+    aspect-ratio: 16 / 9;              /* keeps YouTube's wide shape */
+    object-fit: cover;                 /* fills the box without stretching */
+    border-radius: 12px;
+    display: block;
+}
+
+/* Row below the thumbnail: channel picture + title + info */
+.video-info {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+/* Small round channel picture */
+.channelprofile {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+}
+
+.channelprofile img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Title and view-count text next to the picture */
+.r2 {
+    flex: 1;
+    min-width: 0;                      /* lets long titles shrink correctly */
+}
+
+.video-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #0f0f0f;
+    margin: 0 0 4px;
+}
+
+.video-meta {
+    font-size: 13px;
+    color: #606060;
+    margin: 0;
+}
+
+
+/* ---------- 5. MOBILE / SMALL SCREENS ---------- */
+
+/* On screens narrower than 768px (phones), simplify the layout */
+@media (max-width: 768px) {
+    .content-left {
+        display: none;                 /* hide the sidebar */
+    }
+
+    #textbox {
+        width: 180px;                  /* shorter search box */
+    }
+
+    .content-right {
+        grid-template-columns: 1fr;    /* videos stack in one column */
+        padding: 16px;
+    }
+}
+
+
+/* ---------- 6. SMALL EXTRAS ---------- */
+
+/* Hide the red badge when there is no number inside it */
+.badge:empty {
+    display: none;
+}
